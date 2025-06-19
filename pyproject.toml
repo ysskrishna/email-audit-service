@@ -1,0 +1,7 @@
+[project]
+name = "email-audit-service"
+version = "1.0.0"
+description = "Simple Email Audit service"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
