@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import Dict
+from core.types import RuleResult
 
 class BaseRule(ABC):
     @abstractmethod
-    def evaluate(self, email_data: Dict) -> Dict:
+    def evaluate(self, email_data: Dict) -> RuleResult:
         """
         Evaluate the email against this rule
         
@@ -11,11 +12,10 @@ class BaseRule(ABC):
             email_data: Dictionary containing parsed email data
             
         Returns:
-            {                
-                "rule_name": str,
-                "passed": bool,
-                "score": float,
-                "justification": str
-            }
+            RuleResult object containing:
+                - rule_name: str
+                - passed: bool
+                - score: float between 0 and 1
+                - justification: str
         """
         pass 
