@@ -1,1 +1,1 @@
-# Email Audit Service API
+# Email Audit Service
