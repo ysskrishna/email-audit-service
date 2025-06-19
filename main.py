@@ -1,4 +1,6 @@
 from core.email_parser import EmailParser
+from ruleengine.engine import RuleEngine
+from core.enums import RuleEnum
 
 def main():
     print("Email Audit Service Started")
@@ -16,11 +18,13 @@ def main():
     # email_threads = ["data/non_employee_reply_email.eml"]
 
     employee_domain = "@test.com"
+    selected_rules = [RuleEnum.GREETING]
     total_email_threads_counter = len(email_threads)
     valid_employee_reply_counter = 0
     invalid_email_counter = 0
 
 
+    rule_engine = RuleEngine()
     
     for email_path in email_threads:
         print(f"\n📄 Processing: {email_path}")
@@ -42,6 +46,9 @@ def main():
             continue
         
         valid_employee_reply_counter += 1
+
+        result = rule_engine.run(last_reply, selected_rules)
+        print(result)
 
     print(f"🔎 Total email threads: {total_email_threads_counter}")
     print(f"🔎 Valid employee reply: {valid_employee_reply_counter}")

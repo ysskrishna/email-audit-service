@@ -1,14 +1,14 @@
 from typing import Dict
 from ruleengine.rule_base import BaseRule
 from core.enums import RuleEnum
-from core.types import RuleResult
+from core.types import RuleResult, EmailData
 
 class GreetingRule(BaseRule):
-    def evaluate(self, email_data: Dict) -> RuleResult:
+    def evaluate(self, email_data: EmailData) -> RuleResult:
         """
         Check if the email contains a proper greeting
         """
-        body = email_data.get('body', '').lower()
+        body = email_data.body.lower()
         greeting_words = ['hi', 'hello', 'dear', 'good morning', 'good afternoon', 'good evening']
 
         if any(word in body for word in greeting_words):
