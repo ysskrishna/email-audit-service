@@ -31,7 +31,7 @@ def main():
         parser = EmailParser(email_path)
 
         last_reply = parser.extract_last_reply()
-        # EmailParser.print_email(last_reply)    
+        EmailParser.print_email(email_path, last_reply)    
 
         # Check if the last reply is from the employee
         if not last_reply.sender.lower().endswith(employee_domain):
@@ -48,7 +48,7 @@ def main():
         valid_employee_reply_counter += 1
 
         result = rule_engine.run(last_reply, selected_rules)
-        print(result)
+        RuleEngine.print_output(email_path, result)
 
     print(f"🔎 Total email threads: {total_email_threads_counter}")
     print(f"🔎 Valid employee reply: {valid_employee_reply_counter}")

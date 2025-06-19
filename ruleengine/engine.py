@@ -39,4 +39,15 @@ class RuleEngine:
             "areas_to_improve": [r.rule_name for r in results if not r.passed],
             "results": results
         }
-        return output 
+        return output
+
+    @staticmethod
+    def print_output(email_path: str, output: Dict):
+        print("-" * 50)
+        print(f"🔎 Audit Result for {email_path}: ")
+        print(f"Overall Score: {output['overall_score']}%")
+        print(f"Passed: {output['passed']}/{output['total_rules']}")
+        print(f"Strengths: {output['strengths']}")
+        print(f"Areas to Improve: {output['areas_to_improve']}")
+        print(f"Results: {output['results']}")
+        print("-" * 50)

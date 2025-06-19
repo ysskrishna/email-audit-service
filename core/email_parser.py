@@ -67,7 +67,9 @@ class EmailParser:
         return full_address.strip()
 
     @staticmethod
-    def print_email(email: EmailData):
+    def print_email(email_path: str, email: EmailData):
+        print("-" * 50)
+        print(f"Email Details for {email_path}: ")
         print(f"From: {email.from_}")
         print(f"To: {email.to}")
         print(f"Subject: {email.subject}")
@@ -75,3 +77,4 @@ class EmailParser:
         print(f"Content-Type: {email.content_type}")
         print(f"Body: {email.body}")
         print(f"Attachments: {email.attachments}")
+        print("-" * 50)
