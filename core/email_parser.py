@@ -1,7 +1,9 @@
 import email
+import re
 from email import policy
 from email.parser import BytesParser
-from typing import List, Any
+from typing import List
+
 
 class EmailParser:
     def __init__(self, eml_path: str):
@@ -10,15 +12,10 @@ class EmailParser:
     def extract_all_messages(self) -> List[email.message.Message]:
         with open(self.eml_path, 'rb') as f:
             msg = BytesParser(policy=policy.default).parse(f)
-        # Flattening the message thread
-        messages = [msg]
-        while msg.get('In-Reply-To') or msg.get('References'):
-            # In a real thread parser, you'd look up the referenced message
-            break  # Placeholder: Only current message
-        return messages
+        return [msg]  # Placeholder: actual threading requires message store
 
     def extract_email_data(self, msg: email.message.Message) -> dict:
-        data = {
+        return {
             "subject": msg.get("Subject"),
             "from": msg.get("From"),
             "to": msg.get("To"),
@@ -29,16 +26,31 @@ class EmailParser:
             "attachments": self._get_attachments(msg),
             "sender": self._extract_email_address(msg.get("From"))
         }
-        return data
 
     def _get_body(self, msg: email.message.Message) -> str:
+        text = ""
         if msg.is_multipart():
             for part in msg.walk():
-                if part.get_content_type() == "text/plain":
-                    return part.get_payload(decode=True).decode(errors="ignore")
+                if part.get_content_type() == "text/plain" and not part.get_filename():
+                    text = part.get_payload(decode=True).decode(errors="ignore")
+                    break
         else:
-            return msg.get_payload(decode=True).decode(errors="ignore")
-        return ""
+            text = msg.get_payload(decode=True).decode(errors="ignore")
+        return self._strip_quoted_reply(text)
+
+    def _strip_quoted_reply(self, text: str) -> str:
+        reply_markers = [
+            r"^On .+ wrote:$",        # Common reply line
+            r"^From: .*",             # From line
+            r"^>+",                   # Quoted lines
+            r"^Sent from my .*",      # Mobile signatures
+            r"^--$",                  # Signature separator
+        ]
+        pattern = re.compile("|".join(reply_markers), re.MULTILINE)
+        match = pattern.search(text)
+        if match:
+            text = text[:match.start()]
+        return text.strip()
 
     def _get_attachments(self, msg: email.message.Message) -> List[str]:
         attachments = []
@@ -50,7 +62,6 @@ class EmailParser:
     def _extract_email_address(self, full_address: str) -> str:
         if not full_address:
             return ""
-        # Example: 'siva <siva@test.com>' -> 'siva@test.com'
         if '<' in full_address and '>' in full_address:
             return full_address.split('<')[1].split('>')[0]
         return full_address.strip()
