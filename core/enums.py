@@ -1,7 +1,7 @@
-from enum import Enum, auto
+from enum import Enum
 
 class RuleEnum(Enum):
-    GREETING = auto()
-    CLARITY = auto()
-    GRAMMAR = auto()
-    TONE = auto() 
+    GREETING = "greeting"
+    CLARITY = "clarity"
+    GRAMMAR = "grammar"
+    TONE = "tone" 
