@@ -30,13 +30,13 @@ def main():
         # EmailParser.print_email(last_reply)    
 
         # Check if the last reply is from the employee
-        if not last_reply['sender'].lower().endswith(employee_domain):
+        if not last_reply.sender.lower().endswith(employee_domain):
             print(f"⚠ Last reply is not from the employee")
             invalid_email_counter += 1
             continue
         
         # Add a condition to check if the email has attachment ?
-        if not len(last_reply['attachments']) > 0:
+        if not len(last_reply.attachments) > 0:
             print(f"⚠ Email does not have attachment")
             invalid_email_counter += 1
             continue

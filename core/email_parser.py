@@ -3,7 +3,7 @@ import re
 from email import policy
 from email.parser import BytesParser
 from typing import List, Optional
-
+from core.types import EmailData
 
 class EmailParser:
     def __init__(self, eml_path: str):
@@ -14,18 +14,18 @@ class EmailParser:
         with open(self.eml_path, 'rb') as f:
             return BytesParser(policy=policy.default).parse(f)
 
-    def extract_last_reply(self) -> dict:
-        return {
-            "subject": self.msg.get("Subject"),
-            "from": self.msg.get("From"),
-            "to": self.msg.get("To"),
-            "date": self.msg.get("Date"),
-            "message_id": self.msg.get("Message-ID"),
-            "content_type": self.msg.get_content_type(),
-            "body": self._get_body(),
-            "attachments": self._get_attachments(),
-            "sender": self._extract_email_address(self.msg.get("From"))
-        }
+    def extract_last_reply(self) -> EmailData:
+        return EmailData(
+            subject=self.msg.get("Subject"),
+            from_=self.msg.get("From"),
+            to=self.msg.get("To"),
+            date=self.msg.get("Date"),
+            message_id=self.msg.get("Message-ID"),
+            content_type=self.msg.get_content_type(),
+            body=self._get_body(),
+            attachments=self._get_attachments(),
+            sender=self._extract_email_address(self.msg.get("From"))
+        )
 
     def _get_body(self) -> str:
         text = ""
@@ -67,11 +67,11 @@ class EmailParser:
         return full_address.strip()
 
     @staticmethod
-    def print_email(email):
-        print(f"From: {email['from']}")
-        print(f"To: {email['to']}")
-        print(f"Subject: {email['subject']}")
-        print(f"Date: {email['date']}")
-        print(f"Content-Type: {email['content_type']}")
-        print(f"Body: {email['body']}")
-        print(f"Attachments: {email['attachments']}")
+    def print_email(email: EmailData):
+        print(f"From: {email.from_}")
+        print(f"To: {email.to}")
+        print(f"Subject: {email.subject}")
+        print(f"Date: {email.date}")
+        print(f"Content-Type: {email.content_type}")
+        print(f"Body: {email.body}")
+        print(f"Attachments: {email.attachments}")
