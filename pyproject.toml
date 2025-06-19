@@ -1,7 +1,28 @@
 [project]
 name = "email-audit-service"
 version = "1.0.0"
-description = "Simple Email Audit service"
+description = "Email Audit Service to evaluate the quality and compliance of email communication between company employees and external customers"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+   {name = "ysskrishna", email = "sivasaikrishnassk@gmail.com"}
+]
+keywords = [
+    "email",
+    "audit",
+    "compliance",
+    "communication",
+    "quality"
+    "rules"
+    "rule-engine"
+    "ysskrishna"
+]
 dependencies = []
+
+
+[project.urls]
+Homepage = "https://github.com/ysskrishna/email-audit-service"
+Documentation = "https://github.com/ysskrishna/email-audit-service#readme"
+Repository = "https://github.com/ysskrishna/email-audit-service.git"
+Issues = "https://github.com/ysskrishna/email-audit-service/issues"
+"Bug Tracker" = "https://github.com/ysskrishna/email-audit-service/issues"
