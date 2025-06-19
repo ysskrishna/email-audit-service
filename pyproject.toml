@@ -1,7 +1,7 @@
 [project]
 name = "email-audit-service"
 version = "1.0.0"
-description = "Email Audit Service to evaluate the quality and compliance of email communication between company employees and external customers"
+description = "Email Audit Service to evaluate the quality and compliance of email threads between company employees and external customers"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [
@@ -9,6 +9,7 @@ authors = [
 ]
 keywords = [
     "email",
+    "email-threads"
     "audit",
     "compliance",
     "communication",

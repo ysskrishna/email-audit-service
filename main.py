@@ -6,17 +6,17 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description="Run Email Audit Service")
-    parser.add_argument('--emails', nargs='+', required=True, help='Paths to email thread .eml files')
+    parser.add_argument('--email-threads', nargs='+', required=True, help='Paths to email thread .eml files')
     parser.add_argument('--employee-domain', default='@test.com', help='Employee email domain')
     parser.add_argument('--rules', nargs='+', default=['GREETING', 'CLARITY', 'GRAMMAR', 'TONE'], help='Rules to apply')
     
     args = parser.parse_args()
 
-    print(f"🔎 Email threads: {args.emails}")
+    print(f"🔎 Email threads: {args.email_threads}")
     print(f"🔎 Employee domain: {args.employee_domain}")
     print(f"🔎 Rules: {args.rules}")
 
-    email_threads = args.emails
+    email_threads = args.email_threads
     employee_domain = args.employee_domain
     selected_rules = [RuleEnum[rule] for rule in args.rules]
 

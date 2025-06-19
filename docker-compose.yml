@@ -3,6 +3,6 @@ services:
     build:
       context: .
     command: >
-      --emails data/employee_reply_email_with_image_attachment.eml
+      --email-threads data/employee_reply_email_with_image_attachment.eml
       --employee-domain @test.com
       --rules GREETING CLARITY GRAMMAR TONE

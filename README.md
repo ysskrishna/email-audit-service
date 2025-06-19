@@ -26,15 +26,15 @@ cd email-audit-service
 
 ## Usage
 
-### Run with Docker
+### Build and Run with Docker
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 ### Command Line Arguments
 
-- `--emails`: One or more .eml files to process
+- `--email-threads`: One or more email threads(.eml) files to process
 - `--employee-domain`: Domain to identify employee emails (default: @test.com)
 - `--rules`: Rules to apply (choices: GREETING, CLARITY, GRAMMAR, TONE)
 
@@ -59,10 +59,10 @@ assessment/
 
 #### Process Multiple Files
 ```bash
-python main.py --emails data/employee_reply_email_with_image_attachment.eml data/employee_reply_email_without_image_attachment.eml --employee-domain @test.com --rules GREETING CLARITY GRAMMAR TONE
+python main.py --email-threads data/employee_reply_email_with_image_attachment.eml data/employee_reply_email_without_image_attachment.eml --employee-domain @test.com --rules GREETING CLARITY GRAMMAR TONE
 ```
 
 #### Process Single File with Limited Rules
 ```bash
-python main.py --emails data/employee_reply_email_with_image_attachment.eml --employee-domain @test.com --rules GREETING CLARITY
+python main.py --email-threads data/employee_reply_email_with_image_attachment.eml --employee-domain @test.com --rules GREETING CLARITY
 ```
