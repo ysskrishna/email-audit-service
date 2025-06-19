@@ -18,7 +18,7 @@ def main():
     # email_threads = ["data/non_employee_reply_email.eml"]
 
     employee_domain = "@test.com"
-    selected_rules = [RuleEnum.GREETING]
+    selected_rules = [RuleEnum.GREETING, RuleEnum.CLARITY, RuleEnum.GRAMMAR, RuleEnum.TONE]
     total_email_threads_counter = len(email_threads)
     valid_employee_reply_counter = 0
     invalid_email_counter = 0

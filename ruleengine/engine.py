@@ -3,10 +3,16 @@ from core.types import EmailData, RuleResult
 from core.enums import RuleEnum
 from ruleengine.rule_base import BaseRule
 from ruleengine.rules.greeting_rule import GreetingRule
+from ruleengine.rules.clarity_rule import ClarityRule
+from ruleengine.rules.grammar_rule import GrammarRule
+from ruleengine.rules.tone_rule import ToneRule
 
 
 RULE_MAP: Dict[RuleEnum, BaseRule] = {
     RuleEnum.GREETING: GreetingRule(),
+    RuleEnum.CLARITY: ClarityRule(),
+    RuleEnum.GRAMMAR: GrammarRule(),
+    RuleEnum.TONE: ToneRule(),
 }
 
 class RuleEngine:
