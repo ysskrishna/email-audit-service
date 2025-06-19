@@ -2,27 +2,27 @@ from core.email_parser import EmailParser
 from ruleengine.engine import RuleEngine
 from core.enums import RuleEnum
 
+import argparse
+
 def main():
-    print("Email Audit Service Started")
+    parser = argparse.ArgumentParser(description="Run Email Audit Service")
+    parser.add_argument('--emails', nargs='+', required=True, help='Paths to email thread .eml files')
+    parser.add_argument('--employee-domain', default='@test.com', help='Employee email domain')
+    parser.add_argument('--rules', nargs='+', default=['GREETING', 'CLARITY', 'GRAMMAR', 'TONE'], help='Rules to apply')
+    
+    args = parser.parse_args()
 
-    # # Case1: Employee reply Email with image attachment + Employee reply Email without image attachment
-    # email_threads = ["data/employee_reply_email_with_image_attachment.eml", "data/employee_reply_email_without_image_attachment.eml"]
+    print(f"🔎 Email threads: {args.emails}")
+    print(f"🔎 Employee domain: {args.employee_domain}")
+    print(f"🔎 Rules: {args.rules}")
 
-    # Case2: Employee reply Email with image attachment
-    email_threads = ["data/employee_reply_email_with_image_attachment.eml"]
+    email_threads = args.emails
+    employee_domain = args.employee_domain
+    selected_rules = [RuleEnum[rule] for rule in args.rules]
 
-    # # Case3: Employee reply Email without image attachment
-    # email_threads = ["data/employee_reply_email_without_image_attachment.eml"]
-
-    # Case4: Non employee reply email
-    # email_threads = ["data/non_employee_reply_email.eml"]
-
-    employee_domain = "@test.com"
-    selected_rules = [RuleEnum.GREETING, RuleEnum.CLARITY, RuleEnum.GRAMMAR, RuleEnum.TONE]
     total_email_threads_counter = len(email_threads)
     valid_employee_reply_counter = 0
     invalid_email_counter = 0
-
 
     rule_engine = RuleEngine()
     
@@ -33,29 +33,23 @@ def main():
         last_reply = parser.extract_last_reply()
         EmailParser.print_email(email_path, last_reply)    
 
-        # Check if the last reply is from the employee
         if not last_reply.sender.lower().endswith(employee_domain):
             print(f"⚠ Last reply is not from the employee")
             invalid_email_counter += 1
             continue
         
-        # Add a condition to check if the email has attachment ?
         if not len(last_reply.attachments) > 0:
             print(f"⚠ Email does not have attachment")
             invalid_email_counter += 1
             continue
         
         valid_employee_reply_counter += 1
-
         result = rule_engine.run(last_reply, selected_rules)
         RuleEngine.print_output(email_path, result)
 
     print(f"🔎 Total email threads: {total_email_threads_counter}")
     print(f"🔎 Valid employee reply: {valid_employee_reply_counter}")
     print(f"🔎 Invalid email threads: {invalid_email_counter}")
-
-        
-
 
 if __name__ == "__main__":
     main()
