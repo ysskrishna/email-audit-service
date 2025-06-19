@@ -1,0 +1,284 @@
+Delivered-To: mentee.guruz@gmail.com
+Received: by 2002:ab3:4890:0:b0:2b1:a3c9:98c4 with SMTP id r16csp321043ltb;
+        Thu, 19 Jun 2025 07:03:18 -0700 (PDT)
+X-Received: by 2002:a2e:a581:0:b0:32a:8035:3f65 with SMTP id 38308e7fff4ca-32b4a63f999mr75474191fa.36.1750341797593;
+        Thu, 19 Jun 2025 07:03:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1750341797; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VpgM3WyGzPJ7X2xbc9X5ZVHuZQ++58MOkHYPacuYFUTonIBb/J5YpY+ZBBNSaR6P/G
+         I5JnaT9tddc3TCFWt1sLLi47hkWOuH2AP0Ix7NUhXZkfFw1yFlEGZy9zGc1HosEWheZ2
+         cxewCTm4HXd9BPm5LQ89ZYOFjeBgHzE5AjKXfbUxXlAgmjXNPiodXxwdFhnzY3/kzyVT
+         mtKIZ4mOBXIQa8nlxeq6QBK2Yf2O2zw266RqaxEM5F5tgbNKWdiHUo1lS+iDlJNfRlyI
+         D+MTIFeGpOXP14PBhttlc7fBHs0o54HiR6ZWcusyHbcuQ4bZz07lfMxQNKgtA3mcjQDY
+         D3vA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=z4OLsgqPchWSAlwHf/RaTRsTKxusiAUDfRlv3P5Nunc=;
+        fh=4tJ7xuYa/YRbGQPPBZVYpH0pTCj3BLSrm/za4E8QPLo=;
+        b=OuiDjFwAifkLbOzgOeaboRQkc47h3xjLJ42hsSpGCmyX6EEjl/jokbcSbM5PgkWCga
+         Pqm/qoFOJDuU24H6QW3mEJOWl14yStJFCJaOVj+UJP8NHKCCQOBiaDGREq+MCF1v9zSl
+         gaHqieIUn6N05PoUk6M+BTcfFYcVPucH0vMnJv0hp3FQnN1LzTW5W/naXgmvk9zvyzCB
+         ZhUWtZLKWi7rf4zWaIDtrmN8dO5AEpVKsIYpnuoTZteoDE8Wpy8SxkqlGOITE98atHy3
+         bgWn92CLlV4OimDV5tQRleO1ckDKhVfHe/2ia/axns2ja0vBHdqrEfdKIMjcHWcVDx3W
+         zJ5w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20230601 header.b=VCVaBIcL;
+       spf=none (google.com: postmaster@mail-sor-f65.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f65.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 38308e7fff4ca-32b3306ff3fsor32400051fa.5.2025.06.19.07.03.17
+        for <mentee.guruz@gmail.com>
+        (Google Transport Security);
+        Thu, 19 Jun 2025 07:03:17 -0700 (PDT)
+Received-SPF: none (google.com: postmaster@mail-sor-f65.google.com does not designate permitted sender hosts) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20230601 header.b=VCVaBIcL;
+       spf=none (google.com: postmaster@mail-sor-f65.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f65.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1750341797; x=1750946597; dara=google.com;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:from:to:cc:subject:date:message-id:reply-to;
+        bh=z4OLsgqPchWSAlwHf/RaTRsTKxusiAUDfRlv3P5Nunc=;
+        b=VCVaBIcLoo2mglKjmXQ32mAMicrm8uFqhOr3rJutMgkCoL1CkmrDSK33xmdwweSMDH
+         0J9Y4WmtoKk8RCf+/ICQvdd6MiZs9e+9hnxrkXRGlZd21omaWZvX7QZXKhe0QDMhImrL
+         ua8bhjst88Ets0+uxke+HR5zZ80jlT3roEImGa+H4vxv3J4QEO4G9R3WVOg2hZZ3AJAE
+         XoeE8R+CGKAJVIvjaG8U6j2v2C+iow7wNXgenB+U1PLQEVnuQ2VVroStS13UyMsfLFE8
+         ixXzMaDtSNYOyp+ufh6CqwWM8PoT0BreczH+oAvYPdj5u5e3eEam3o7SjGxmBxsnTojr
+         b9xQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750341797; x=1750946597;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=z4OLsgqPchWSAlwHf/RaTRsTKxusiAUDfRlv3P5Nunc=;
+        b=BJ821YANJoFs+h35Num1P/37Y++RRlOHNjxjGV7GwuIS7k9F2gcfAyBUpJB8hQWj6h
+         YJyz1l36ITEV8sEwxDxsWvWj4k0dHLgk0O233UDWOaRCBp+HFFDfAF4uL8jbJRLkpemv
+         K6nUtrWYS3tUrRNTA2jGF+Ga6SJj/cSzJ2X2vRxN9Vke5o+fWRAy2y+UomIgy7c5A9Ex
+         Zm6uOvCsEX0+nXH9sZkIbMmUmIn/IynaYkswh5P9ej51FPkuj5+VIdfM7vtR2xb2WSg/
+         mRToY3/c9Eujy3R/eEROt4ZPACs+rzhEd3nhSz0FGvNWeqVSU8gSbjuK2Z834b2qzJ3d
+         PcIQ==
+X-Gm-Message-State: AOJu0YwGj07tTcxZWL3aUjDFkKJHPvpFKUsVX02OhqSMBlAbZKt+xPwv
+	bMIl9/2GbLZRG++kt8bXQkkUNTUNpkVI7aRtH/kevV5tJfyJjIB/oWV4WoZ/Pl9voGQJMmbYg7S
+	/7rhxI44Cs40wWdHSR5iSqJ1055ppQCJNsehmcecW4bbQFovP4JXBkd97Yg==
+X-Google-Smtp-Source: AGHT+IFISNwpVfK7FtwLulIiF5o0JZdUwm6Ei7Y0xdBWBdaqm8Ifqv4NY4nxrrXc1W65IGZqffC60v/hGg/e8GjSZqMezhQJ02BK38E=
+X-Received: by 2002:a05:6512:3a92:b0:553:26a7:70ec with SMTP id 2adb3069b0e04-553b6d9eb20mr5957902e87.0.1750340685667;
+        Thu, 19 Jun 2025 06:44:45 -0700 (PDT)
+Content-Type: multipart/report; boundary="000000000000ce18190637ecf269"; report-type=delivery-status
+To: mentee.guruz@gmail.com
+Received: by 2002:a05:6512:3a92:b0:553:26a7:70ec with SMTP id
+ 2adb3069b0e04-553b6d9eb20mr5813253e87.0; Thu, 19 Jun 2025 06:44:45 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <6854144d.050a0220.34cc22.6ac6.GMR@mx.google.com>
+Date: Thu, 19 Jun 2025 06:44:45 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <119ae4edc10a5cdd41859c4c209fc0de14dadf09-20358811-111674798@google.com>
+ <CAH8q=Ld9tSDPQx6ZjJaUGWoX+EWA-VyZbO+hdYrRN0dxGAaB4A@mail.gmail.com>
+In-Reply-To: <CAH8q=Ld9tSDPQx6ZjJaUGWoX+EWA-VyZbO+hdYrRN0dxGAaB4A@mail.gmail.com>
+X-Failed-Recipients: no-reply@kaggle.com
+
+--000000000000ce18190637ecf269
+Content-Type: multipart/related; boundary="000000000000ce18490637ecf26a"
+
+--000000000000ce18490637ecf26a
+Content-Type: multipart/alternative; boundary="000000000000ce184b0637ecf26b"
+
+--000000000000ce184b0637ecf26b
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Address not found **
+
+Your message wasn't delivered to no-reply@kaggle.com because the address couldn't be found, or is unable to receive mail.
+
+Learn more here: https://support.google.com/mail/?p=NoSuchUser
+
+The response was:
+
+The email account that you tried to reach does not exist. Please try double-checking the recipient's email address for typos or unnecessary spaces. For more information, go to https://support.google.com/mail/?p=NoSuchUser
+
+--000000000000ce184b0637ecf26b
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Address not found
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+Your message wasn't delivered to <a style='color:#212121;text-decoration:none'><b>no-reply@kaggle.com</b></a> because the address couldn't be found, or is unable to receive mail.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285F4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://support.google.com/mail/?p=NoSuchUser">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response was:<br/>
+<p style="font-family:monospace">
+The email account that you tried to reach does not exist. Please try double-checking the recipient's email address for typos or unnecessary spaces. For more information, go to https://support.google.com/mail/?p=NoSuchUser
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--000000000000ce184b0637ecf26b--
+--000000000000ce18490637ecf26a
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNrsnD9sFEcUh5+PRMqZ
+yA0SPhAUQAQFUkyTgiBASARo6QApqVIkfdxGFJFSgGhJAUIiBaQB0ZIOKVCkwUgURjIg2fxL4kS+
+YDvkbC/388bi8N16Z4/d7J/5PsniuD3fyePP772ZeTsDQRAYQL/UGAJAIEAgQCBAIAAEAgQCBAIE
+AkAgyJT3Mv+Eq7vYK8mTE+MDRCAghQECAeRQA5V2ZOpmg5vDx3NPzRbmGRMEcmTrEbNNB8zWfRD+
+f/Efs2e3zCZvMjaksBg27TfbcuSNPEKP9ZyuAQKtHX2O9ncNgWC57umMPKvRNb0GEKgnLoUyxTQC
+rcns0/6uIRAs8/hGf9cQCJZpTpjdO2f25/03z+mxntM1eLtsZAgiUtX4JcaBCAQIBAgECARQ8CJa
+G5jab4J4pm4WZmO3OALVh802fIwcLkyPkcKAGggAgQCBAIEAgQCBABAIEAjKA/1AnahhbO5FdOOY
+VsrrDbPBYcYKgf5D2wLaV3p+22xh1u17tO3S+DTcvxvagUDeivPgx/a/95J/73w7Sj26Hn4pKo2M
+ehuV/KyBJM6d0f7k6RKx/R63vvL2tmf/ItDdM2ZTP6f7nkp9Y2fDx1v9akmpIU+KSCLVUghUQfSL
+zVKeTklbLxGoctw/nzC5rw8L5KRNbkpnKq6pgSqEClzNnFzY+XnYWrt6VpVk1vbwWvg+RKCKMOUw
+Q1LEOXA+/MX3mpJvGDHb265xtnzmFoUK1HaKQGlMtePYM+q2KKjXuaS1NJYIEKgI8jhEgqHt4cqy
+Ky53j3hyHz2bqSLp2o2LbJ7MxKovkGqXteoWpaOk96O9/yF/dF7NwlS36AuIQIBA5celQK4PIxBE
+4LLzrtoLgaALdSy6CJRkWQCBPGLsTHznomZ9nszUECgJ2ml3WWHe+QVFNPSQx6UdZNtxr9pbEShN
+eTTz8mQXHoHSlke7+Z+c9m6VGoHSkEfs/trLW3wQKApN1V3lGfnGu2Z6BFoLtYCs3GWBPAiUCLVh
+/HoaeRCoT9R873KLM/IgUBfapnCpe5AHgXry4pf412ihEHkQqCdxd5VqrcezhUIESsJMTJ+Pdthp
+Z0WgyNlXXPHc2Mc4IVAELl2Gnh8mhUDvCkfbIVAkcbf/aOoO3fMKhqAD3frTa4quwpn0hUDOkQhI
+YYBAgECAQAAU0QlYObl+5Ug8NcprZkZxjUCxRPVA6zmtEXHCBykskrhjgHXN09PoEcgFl4M4H11j
+nBAoApcj6ZoPGScEAgTKApcDoTw5sgWB+sGlz1n90IBAPdE6j1o21PfcC11jLagL1oFWRyGlKU3p
+OxcSJQ7NZAjkhHp/uG2HFAYIBAgECASAQIBAgECAQAAIBOkxEARBtp9wdVfAMOfIifEBIhCQwgCB
+ABAI0oV2jhxZ+nfBatuPZfgBCy0Eqqo8c01b+uu51XZvzOgDWoHNTGR+pCwpLEd5svuAZXlO2uEr
+PyEQ8hRWHgRCHmqg0sjTnLalv6crJQ8C/U8stqNO0I4+VZOHFIY8COS1PGL2ybd5yUMKK7s8zYmL
+dujyd3n+nESgcsvzZd4/KwIhDwIhT35QA6UyE1qyxZnfvJMHgdKS549JC1qvvJOHFIY8CFR5eV5O
+XimqPAhUdHnmfx+zgxdOFXkoqIGKKs/cswnb/8Oeog8HEai48nxUhiFBIORBIOShBioskkbySCLk
+IQIhDwIhj28p7FApR6b1qlEbHGpkO/rr6215vi/zH1r2x7tApSGFAQIBAgECAQIBIBAgECAQIBBA
+LK8FGADCTxYrr+EVJgAAAABJRU5ErkJggg==
+--000000000000ce18490637ecf26a--
+--000000000000ce18190637ecf269
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; mentee.guruz@gmail.com
+Arrival-Date: Thu, 19 Jun 2025 06:44:44 -0700 (PDT)
+X-Original-Message-ID: <CAH8q=Ld9tSDPQx6ZjJaUGWoX+EWA-VyZbO+hdYrRN0dxGAaB4A@mail.gmail.com>
+
+Final-Recipient: rfc822; no-reply@kaggle.com
+Action: failed
+Status: 5.1.3
+Diagnostic-Code: smtp; The email account that you tried to reach does not exist. Please try double-checking the recipient's email address for typos or unnecessary spaces. For more information, go to https://support.google.com/mail/?p=NoSuchUser
+Last-Attempt-Date: Thu, 19 Jun 2025 06:44:45 -0700 (PDT)
+
+--000000000000ce18190637ecf269
+Content-Type: text/rfc822-headers
+
+X-Received: by 2002:a05:6512:3a92:b0:553:26a7:70ec with SMTP id 2adb3069b0e04-553b6d9eb20mr5957884e87.0.1750340684672;
+        Thu, 19 Jun 2025 06:44:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1750340684; cv=none;
+        d=google.com; s=arc-20240605;
+        b=i/MOkyVVeuQ30g94vaq0irJ+0FAPGeJ5uw1iiZDS8YNjeY/eTounh6J+dZoMSFFHcV
+         VL8rWi1PR0LAMmBNwXE55BGLfW07CpaYXlrQyXy+sXVzJKtOGJhGYC3BU+UJwOGb+mqS
+         bfahbd+hxI2wnXh3OGMbILiakLa4KOPMz3J37BVf3SrKRH/Wvq01G/Q9duXeTblNF3wI
+         URZINtj+v1SLDx/UoVD3xpKy4RTOhnIJaEmVURRofdY1Y3njy2EF65vFhK3XWZF382Zb
+         JJhn0Gb7jXcjIISNZ+HFj2ecXbD5oa5oZLmYqMcpyWliMNdYaiMdqXlKRy3C/nmn4Y05
+         /oyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=T5cIZxxMIpPpqxaMBqIOZV8nl1YlLDHM8QAdJhuk464=;
+        fh=8xRbH+gLn9d8NRhVE+maOf8jQz+wraLRNTi8cltbAGo=;
+        b=Gn9rKlOKm9eP3z+Pp842w4I7xXzTO9BoehsIgjNiZEuOXOfPc2/pwUv0/d+VvksXdY
+         dz5QMmuhEMC4cyOBNgrvsUda2xN66DAIovmjm7sX/WOQXwbAK5GJ4CrOUMeKNc4xJAsQ
+         fUBP9nqfPtSPuvyI0H6YnX3K5G62c8RH3ZacICC8SMsd7G5d7uqyMtB9vCLd6miu8ytD
+         1CMuI2wYqWrgWf5EzU/7rbR29OQNvobG9Vf5+efx/8szINYKxM443ifHp77agAGu1OI2
+         cYBnT3BiCI7wzcRf4qNQZJDNFau4W9FNKsX5lsNVZQMY33eZfyFfSvm599eS7OXhQNk4
+         +kJg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=H+s0ApU+;
+       spf=pass (google.com: domain of mentee.guruz@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=mentee.guruz@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@kaggle.com
+Return-Path: <mentee.guruz@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2adb3069b0e04-553a6fcb3e7sor3900009e87.16.2025.06.19.06.44.44
+        for <no-reply@kaggle.com>
+        (Google Transport Security);
+        Thu, 19 Jun 2025 06:44:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mentee.guruz@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=H+s0ApU+;
+       spf=pass (google.com: domain of mentee.guruz@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=mentee.guruz@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@kaggle.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750340684; x=1750945484; darn=kaggle.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T5cIZxxMIpPpqxaMBqIOZV8nl1YlLDHM8QAdJhuk464=;
+        b=H+s0ApU+O6ee2SMeG5gpdqTCo9ddifvRomgpcIh1JYOSl2bqFHDFqmWgZBrMVWy84A
+         bDtJOWWK+bjITGFqEPgEdhEcvyTlJOL3Wiucuy3fq4pMZMRQ84mJ0Q2uNBMfBTQhxRZ2
+         8IgQyXkirvxrr8oUl0z+eCJoTxYYMg19wXinGMbJ67FsFLOgd8WQYH3PlWrOMb+D62AS
+         ogpVXIt7om37A763rsg2O2GZN1efvd3qN3depATgjQvULUHRsvkODZU0IQugfEo7CK7e
+         y4IG3PKnkfOsZBJpT7FtQs4uuRPcS94RBwMuV/3o2wx9UvuiudHvsbXIJD+eLz1WZ0cW
+         x/rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750340684; x=1750945484;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T5cIZxxMIpPpqxaMBqIOZV8nl1YlLDHM8QAdJhuk464=;
+        b=qm/WEBWYo+5rcjKfMcTS55aZ/dOQsGDFQy0rYKbZjWiRqabTzsJpbVLL50qBjOpMIl
+         u6Wjh+haPlaLgdOIao3jOQZk+DvXlpvkwFAIIUoqu6sXNfyfyQt+NWUB1O6fzbD0Edqm
+         7ZFfGySAz5KE/ptFIt/+p9JYjobHWW5MtkE4phYxwKfpxrmkEXoKm70H81NdGoos0NtQ
+         p2go8UXZCDug14aVcN/cRnku8WbegTcDCN1AK6yEPz+FTOj4bo/SN1j8DxD3aHlO7SQF
+         7TLAG7LLjw8upqu3dqdDgMhZtHTLhhG5++4UL0QINoPOXGFa65g45Dqi9CPj73e+JEMN
+         OY+w==
+X-Gm-Message-State: AOJu0YwtNJiMDeKQUjjpiG8W7UeU1SRaZQ+soJgaFQZxDFQzhPPWhUKA
+	ejRfiIycXIFSFDOLaGG4mE2v0nsnwjm1bpfLi4Io9q442fr5ZWq3TxPcEgrejQJm5MgU1YGXD7l
+	OCJlq46GnI1vcIVhcR9Nj41+5BrB/rK6fZw==
+X-Gm-Gg: ASbGncsOOUDybcrRbdAHnwaQ2UU2jBLPK+jB/n6o9jEPc7V5vNV77mdzSTY14yElret
+	9IB3jYIqvwjHm0vPVpD2IYPEE8i2C0xdL4yc5921pQp5KppsjBaFJxulxBCtghwAE9Ao42rd4EE
+	XuDXgNE1CuLktFv4oERxkyWEuOuHeLjGJ8FSui9iEw+GU=
+X-Google-Smtp-Source: AGHT+IGb8rkLBTDjJJjk3/bt7JzbzQq5ssnVb2dM7UQDV2E6PGDUuCYQnMnYpt6p0vlDSOtFikrfMC97YaM1jJoVVcY=
+X-Received: by 2002:a05:6512:3d24:b0:550:e3de:63bc with SMTP id
+ 2adb3069b0e04-553b6e8da9dmr6178466e87.25.1750340683548; Thu, 19 Jun 2025
+ 06:44:43 -0700 (PDT)
+MIME-Version: 1.0
+References: <119ae4edc10a5cdd41859c4c209fc0de14dadf09-20358811-111674798@google.com>
+In-Reply-To: <119ae4edc10a5cdd41859c4c209fc0de14dadf09-20358811-111674798@google.com>
+From: rohit mentee <mentee.guruz@gmail.com>
+Date: Thu, 19 Jun 2025 19:14:30 +0530
+X-Gm-Features: AX0GCFtSNAwLrjGp34CyZN_qle02YFov-p9c1TBE8o5Eeezt5dt_3mivLQBpD8I
+Message-ID: <CAH8q=Ld9tSDPQx6ZjJaUGWoX+EWA-VyZbO+hdYrRN0dxGAaB4A@mail.gmail.com>
+Subject: Re: [Model Launch] Devstral Is Now on Kaggle!
+To: Kaggle <no-reply@kaggle.com>
+Content-Type: multipart/alternative; boundary="000000000000adcd710637ecf231"
+
+
+--000000000000ce18190637ecf269--
