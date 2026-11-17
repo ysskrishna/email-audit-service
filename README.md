@@ -1,5 +1,7 @@
 # Email Audit Service
 
+[![License: MIT](https://img.shields.io/github/license/ysskrishna/email-audit-service)](https://github.com/ysskrishna/email-audit-service/blob/main/LICENSE) [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
+
 A service to evaluate the quality and compliance of email communication between company employees and external customers. The service processes email threads (.eml format) and applies a flexible rules engine to audit them, providing detailed feedback with scoring and justifications.
 
 ## Demo Screenshot:
@@ -105,3 +107,33 @@ assessment/
 ├── data/                  # Sample email files
 └── main.py               # CLI entry point
 ```
+
+## Built and maintained by
+
+Email Audit Service is built and maintained by:
+
+| | Name | GitHub | Role |
+|---|------|--------|------|
+| <img src="https://github.com/ysskrishna.png?size=120" width="60" height="60" alt="Y. Siva Sai Krishna"> | **Y. Siva Sai Krishna** | [@ysskrishna](https://github.com/ysskrishna) | Creator |
+
+## Support
+
+If you find this project helpful:
+
+- ⭐ Star the repository
+- 🐛 [Report issues](https://github.com/ysskrishna/email-audit-service/issues)
+- 🔀 Submit pull requests
+- 💝 [Sponsor on GitHub](https://github.com/sponsors/ysskrishna)
+
+## License
+
+MIT © [Y. Siva Sai Krishna](https://github.com/ysskrishna) — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="left">
+  <a href="https://github.com/ysskrishna">Author's GitHub</a> •
+  <a href="https://linkedin.com/in/ysskrishna">Author's LinkedIn</a> •
+  <a href="https://ysskrishna.space">Author's site</a> •
+  <a href="https://github.com/ysskrishna/email-audit-service/issues">Report Issues</a>
+</p>
