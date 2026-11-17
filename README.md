@@ -1,6 +1,6 @@
 # Email Audit Service
 
-[![License: MIT](https://img.shields.io/github/license/ysskrishna/email-audit-service)](https://github.com/ysskrishna/email-audit-service/blob/main/LICENSE) [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
+[![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
 A service to evaluate the quality and compliance of email communication between company employees and external customers. The service processes email threads (.eml format) and applies a flexible rules engine to audit them, providing detailed feedback with scoring and justifications.
 
@@ -124,10 +124,6 @@ If you find this project helpful:
 - 🐛 [Report issues](https://github.com/ysskrishna/email-audit-service/issues)
 - 🔀 Submit pull requests
 - 💝 [Sponsor on GitHub](https://github.com/sponsors/ysskrishna)
-
-## License
-
-MIT © [Y. Siva Sai Krishna](https://github.com/ysskrishna) — see [LICENSE](LICENSE) for details.
 
 ---
 
