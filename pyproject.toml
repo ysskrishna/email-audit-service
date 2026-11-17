@@ -9,13 +9,13 @@ authors = [
 ]
 keywords = [
     "email",
-    "email-threads"
+    "email-threads",
     "audit",
     "compliance",
     "communication",
-    "quality"
-    "rules"
-    "rule-engine"
+    "quality",
+    "rules",
+    "rule-engine",
     "ysskrishna"
 ]
 dependencies = []
